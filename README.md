@@ -1,5 +1,8 @@
 # Hawkshot
 
+<div align="center"><img src="./readme/hawkshot.gif"></div>
+
+
 ## Project Overview
 
 (work in progress) This project provides tools for analysing line-of-sight visibility (viewshed analysis) between two points using Digital Elevation Model (DEM) data. It helps determine whether a target is visible from an observer's position while accounting for terrain elevations and Earth's curvature over long distances.
