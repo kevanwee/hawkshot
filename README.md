@@ -61,6 +61,20 @@ In the UI you can:
 - Configure sample spacing and curvature/refraction options
 - Run analysis and inspect map/profile output
 
+## Sample DEM and deployment
+
+The app opens on a bundled sample, `samples/idaho_dem.tif`: a 540 × 576 clip (42.82–42.97°N,
+115.62–115.78°W, about 30 m resolution) around the default observer and target, so it works without
+uploading anything. The default points give a 9.4 km line of sight that is blocked 6.8 km out.
+
+The sample is cut from the Copernicus DEM GLO-30: produced using Copernicus WorldDEM-30 © DLR e.V. 2010-2014
+and © Airbus Defence and Space GmbH 2014-2018, provided under COPERNICUS by the European Union and ESA;
+all rights reserved.
+
+**Deploy on Streamlit Community Cloud (free):** at share.streamlit.io choose **Create app**, pick this
+repository, branch `main` and main file `app.py`, and (under Advanced settings) Python 3.12. It installs
+`requirements.txt`. Then set the repository's website link to the new app URL.
+
 ## CLI Usage
 
 Example:
