@@ -1,5 +1,7 @@
 from __future__ import annotations
 
+from pathlib import Path
+
 import matplotlib.pyplot as plt
 import streamlit as st
 
@@ -12,10 +14,17 @@ st.set_page_config(page_title="Hawkshot Viewshed", layout="wide")
 st.title("Hawkshot Viewshed Analysis")
 st.caption("Analyze line-of-sight visibility between two geospatial points over a DEM.")
 
-source_mode = st.radio("DEM source", ["Upload file", "Local path"], horizontal=True)
+SAMPLE_DEM = Path(__file__).parent / "samples" / "idaho_dem.tif"
+SAMPLE_LABEL = "Sample DEM (Snake River Plain, Idaho)"
+
+source_mode = st.radio("DEM source", [SAMPLE_LABEL, "Upload file", "Local path"], horizontal=True)
 dem = None
 
-if source_mode == "Upload file":
+if source_mode == SAMPLE_LABEL:
+    # A 30 m Copernicus DEM clip that covers the default observer and target below
+    dem = load_dem(SAMPLE_DEM)
+    st.caption("Copernicus DEM GLO-30 clip (42.82–42.97°N, 115.62–115.78°W). Pick points inside it, or upload your own DEM.")
+elif source_mode == "Upload file":
     uploaded = st.file_uploader(
         "Upload DEM",
         type=["tif", "tiff", "dt0", "dt1", "dt2", "hgt", "img"],
